@@ -4,6 +4,9 @@ const config = {
 }
 const platformsNames = [  'p_l_r', 'p_m_l', 'p_m_r', 'p_s_l', 'p_s_r' ];
 const titleElement = document.getElementById('title');
+const jumpButton = document.getElementById('jump');
+
+
 export class GameScene extends Phaser.Scene {
     static canJump =  false;
     static floor = null;
@@ -90,19 +93,19 @@ export class GameScene extends Phaser.Scene {
 
 
         let _tempXFire = config.width + 10;
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 80; i++) {
             this.createFire(this.player, this.physics, _tempXFire);
             _tempXFire += Phaser.Math.Between(200, 700);
         }
 
         let _tempXCoin = 400;
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 60; i++) {
             this.createCoins(this.player, this.physics, _tempXCoin, i);
             _tempXCoin += Phaser.Math.Between(200, 1100);
         }
 
 
-        let _tempXTomi8 = 2800;
+        let _tempXTomi8 = 1800;
         for (let i = 0; i < 10; i++) {
             this.createTomi8(this.player, this.physics, _tempXTomi8, i);
             _tempXTomi8 += Phaser.Math.Between(1000, 2000);
@@ -320,26 +323,9 @@ export class GameScene extends Phaser.Scene {
 
         }
     }
-
-    static resetGame(player) {
-        // Reset player position and properties (lives, score, etc.)
-        player.setPosition(config.width / 2, config.height - 100);
-        player.setVelocity(0, 0);
-        this.score = 0;
-        GameScene.tomi8 = 0; // Reset Tomi8 count
-      
-        // Clear obstacles, coins, and other game objects
-        for (let i = GameScene.obstacles.length - 1; i >= 0; i--) {
-          GameScene.obstacles[i].destroy();
-          GameScene.obstacles.splice(i, 1);
-        }
-      
-        for (let i = GameScene.coins.length - 1; i >= 0; i--) {
-          GameScene.coins[i].destroy();
-          GameScene.coins.splice(i, 1);
-        }
-      
-        // ... (Reset other game elements as needed)
-        this.scoreText.setText(`Score: ${this.score} / Tomi8: ${GameScene.tomi8}/5`);
-      }
 }
+
+// Agregar un event listener para el evento 'click'
+jumpButton.addEventListener('click', function() {
+    GameScene.currentScene.player.setVelocityY(-210);
+});

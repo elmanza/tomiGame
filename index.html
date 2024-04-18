@@ -8,6 +8,46 @@
     <script type="module" async src="./main.js"></script>
 </head>
 <style>
+    @media (min-width: 721px) {
+        /* .mobile{
+            display: none;
+        } */
+    }
+    @media (max-width: 3720px) {
+        .mobile{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            padding: 0px 10px;
+        }
+    }
+    #jump{
+        min-width: 240px;
+        line-height: 38px;
+        background-color: rgb(255 255 255 / 1);
+        --tw-text-opacity: 1;
+        color: rgb(88 0 255 / 1);
+        border-color: rgb(88 0 255 / 1);
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        user-select: none;
+        white-space: nowrap;
+        background-color: transparent;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        text-align: center;
+        vertical-align: baseline;
+        font-weight: 900;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+        transition-duration: 300ms;
+        transition-timing-function: linear;
+        border-radius: 9999px;
+        border-width: 1px;
+
+    }
+
 
 </style>
 <body>
@@ -19,14 +59,15 @@
             </p>
         </div>
         <div style="display: flex; justify-content: center; align-items: center;">
-            <div id="phaser-game"></div>
+            <div style="max-width: 800px; overflow: hidden" id="phaser-game"></div>
+        </div>
+        <div class="mobile">
+            <button id="jump">Saltar</button>
         </div>
         <p style="max-width: 500px; width: 100%; text-align: center; margin: 30px auto 0px; font-size: 10pt; font-weight: 500; font-family: sans-serif;">
             Recuerda saltar con la la tecla ESPACIO o con la fecla que apunta hacia arria. Recoge 5 Tomi8 y gana el juego.
         </p>
-        <div>
-
-        </div>
+        
     </div>
 </body>
 </html>
