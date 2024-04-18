@@ -9,7 +9,7 @@ const config = {
     parent: 'phaser-game',
     physics: {
         default: 'arcade',
-        arcade: { gravity: { y: 200 }, debug: true }
+        arcade: { gravity: { y: 200 }, debug: false }
     },
     scene: [Preloader, GameScene]
 };
