@@ -148,6 +148,7 @@ export class GameScene extends Phaser.Scene {
 
     // Function to handle player-obstacle collision (example)
     onHitObstacle() {
+        GameScene.currentScene.score = 0;
         GameScene.tomi8 = 0; // Reset Tomi8 count
         GameScene.currentScene.scene.restart();
     }
