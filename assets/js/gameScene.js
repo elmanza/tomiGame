@@ -49,7 +49,7 @@ export class GameScene extends Phaser.Scene {
 
         // Initialize score and score text
         
-        this.scoreText = this.add.text(20, 20, `Score: 0 / Tomi8: ${GameScene.tomi8}/5`, { fontSize: '20px', fill: '#fff' });
+        this.scoreText = this.add.text(20, 20, `Score: 0 - Tomi8: ${GameScene.tomi8}/7`, { fontSize: '20px', fill: '#fff' });
 
         // Zombies
         this.anims.create({
@@ -93,20 +93,20 @@ export class GameScene extends Phaser.Scene {
 
 
         let _tempXFire = config.width + 10;
-        for (let i = 0; i < 80; i++) {
+        for (let i = 0; i < 100; i++) {
             this.createFire(this.player, this.physics, _tempXFire);
             _tempXFire += Phaser.Math.Between(200, 700);
         }
 
         let _tempXCoin = 400;
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < 80; i++) {
             this.createCoins(this.player, this.physics, _tempXCoin, i);
             _tempXCoin += Phaser.Math.Between(200, 1100);
         }
 
 
-        let _tempXTomi8 = 1800;
-        for (let i = 0; i < 10; i++) {
+        let _tempXTomi8 = 2300;
+        for (let i = 0; i < 20; i++) {
             this.createTomi8(this.player, this.physics, _tempXTomi8, i);
             _tempXTomi8 += Phaser.Math.Between(1000, 2000);
         }
@@ -164,7 +164,7 @@ export class GameScene extends Phaser.Scene {
                 titleElement.innerText = 'Ganaaaaste!!!';
             }
         }
-        this.scoreText.setText(`Score: ${this.score} / Tomi8: ${GameScene.tomi8}/5`);
+        this.scoreText.setText(`Score: ${this.score} - Tomi8: ${GameScene.tomi8}/7`);
         
     }
 
